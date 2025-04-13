@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Trading - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .auth-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 20%, rgba(79,84,200,0.1) 50%, transparent 80%);
+            animation: gradientAnim 20s infinite linear;
+        }
+
+        @keyframes gradientAnim {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardEntrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes cardEntrance {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-control {
+            background: rgba(0,0,0,0.3) !important;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff !important;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #8f94fb;
+            box-shadow: 0 0 0 3px rgba(143,148,251,0.2);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(45deg, #4e54c8, #8f94fb);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gradient-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg) translate(-20%, 100%);
+            transition: all 0.5s ease;
+        }
+
+        .gradient-btn:hover::after {
+            transform: rotate(45deg) translate(20%, -100%);
+        }
+
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .brand-logo {
+            width: 50px;
+            filter: drop-shadow(0 0 8px rgba(143,148,251,0.4));
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.6);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: -10px;
+            left: 5px;
+            font-size: 0.8em;
+            color: #8f94fb;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="apex_logo_major_project.jpg" alt="Apex Trading Logo" class="brand-logo me-2">
+                <span class="h5 mb-0">Apex Trading</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeIn" href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="auth-section text-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="auth-card p-4 p-lg-5">
+                        <div class="text-center mb-5">
+                            <h2 class="animate__animated animate__fadeInDown mb-3">Welcome Back</h2>
+                            <p class="text-muted animate__animated animate__fadeIn animate__delay-1s">Sign in to continue to your trading dashboard</p>
+                        </div>
+                        
+                        <form id="loginForm" class="animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="username" required>
+                                <label for="username">Username</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" required>
+                                <label for="password">Password</label>
+                            </div>
+
+                            <button type="submit" class="btn gradient-btn w-100 mt-4">
+                                <span class="position-relative z-2">Login</span>
+                            </button>
+                        </form>
+
+                        <div class="text-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
+                            <a href="signup.html" class="text-light opacity-75-hover">Create new account</a>
+                        </div>
+
+                        <div id="errorMessage" class="alert alert-danger mt-4 d-none animate__animated animate__headShake"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize default user
+        if (!localStorage.getItem('users')) {
+            const users = [
+                { username: 'archit', password: '1234' },
+                { username: 'admin', password: '1234' }
+            ];
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(u => u.username === username && u.password === password);
+
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (user) {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('currentUser', username);
+                window.location.href = 'index.html';
+            } else {
+                errorMessage.classList.remove('d-none');
+                errorMessage.textContent = 'Invalid username or password';
+                errorMessage.classList.add('animate__headShake');
+                setTimeout(() => errorMessage.classList.remove('animate__headShake'), 1000);
+            }
+        });
+    </script>
+</body>
+</html>

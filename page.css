@@ -1,0 +1,124 @@
+body {
+    background: #0f0f23;
+    overflow-x: hidden;
+}
+
+.auth-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79,84,200,0.2) 0%, transparent 70%);
+    animation: pulseGlow 10s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: floatEntrance 1s ease-out forwards;
+}
+
+@keyframes floatEntrance {
+    0% { transform: translateY(50px) scale(0.95); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.form-control {
+    background: rgba(0,0,0,0.4) !important;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff !important;
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: all 0.4s ease;
+}
+
+.form-control:focus {
+    border-color: #a1a7ff;
+    box-shadow: 0 0 10px rgba(161,167,255,0.5);
+    transform: scale(1.02);
+}
+
+.gradient-btn {
+    background: linear-gradient(45deg, #5e64ff, #a1a7ff);
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.gradient-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.gradient-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.gradient-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(161,167,255,0.4);
+}
+
+.brand-logo {
+    width: 60px;
+    filter: drop-shadow(0 0 15px rgba(161,167,255,0.6));
+    animation: logoPulse 2s infinite ease-in-out;
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+    background: rgba(0,0,0,0.4);
+    padding: 0 5px;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -12px;
+    font-size: 0.9em;
+    color: #a1a7ff;
+}
+
+.navbar {
+    background: rgba(0,0,0,0.9) !important;
+    backdrop-filter: blur(10px);
+}

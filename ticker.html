@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Trading - Live Ticker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 120px 0 60px;
+            color: white;
+        }
+        .ticker-section {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            background: #2d3250;
+            padding: 15px;
+            border-bottom: 1px solid #404670;
+            color: #fff;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4e54c8, #8f94fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tradingview-widget-container {
+            margin: 1rem 0;
+            transition: transform 0.3s;
+        }
+        .tradingview-widget-container:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="apex_logo_major_project.jpg" alt="Apex Trading Logo" width="40" class="me-2">
+                Apex Trading
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="charts.html">Charts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="market-india.html">Market India</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ticker.html">Ticker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">Top Stories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calendar.html">Economic Calendar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 animate__animated animate__fadeInDown">
+                Live Market <span class="gradient-text">Tickers</span>
+            </h1>
+            <p class="lead animate__animated animate__fadeIn">
+                Real-time updates for stocks, funds, and forex markets
+            </p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <!-- Indian Stocks Ticker -->
+        <div class="ticker-section animate__animated animate__fadeInUp">
+            <div class="section-title">
+                <h4>📈 NSE Top Stocks</h4>
+            </div>
+            <div class="tradingview-widget-container">
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                    "symbols" [
+                        {"proName": "NSE:INFY", "title": "Infosys"},
+                        {"proName": "NSE:TCS", "title": "TCS"},
+                        {"pro Name": "NSE:WIPRO", "title": "Wipro"},
+                        {"proName": "NSE:HCLTECH", "title": "HCL Technologies"},
+                        {"proName": "NSE:RELIANCE", "title": "Reliance Industries"}
+                    ],
+                    "showSymbolLogo"; true,
+                    "isTransparent"; false,
+                    "displayMode" ;"adaptive",
+                    "colorTheme";"dark",
+                    "locale"; "en"
+                }
+                </script>
+            </div>
+        </div>
+
+        <!-- Funds Ticker -->
+        <div class="ticker-section animate__animated animate__fadeInUp">
+            <div class="section-title">
+                <h4>💰 Mutual Funds</h4>
+            </div>
+           <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="" async>
+    {
+    "symbols" [
+      {
+        "description": "",
+        "proName": "NSE:NIFTYBEES"
+      },
+      {
+        "description": "",
+        "proName": "NSE:GOLDBEES"
+      },
+      {
+        "description": "",
+        "proName": "NSE:SILVERBEES"
+      },
+      {
+        "description": "",
+        "proName": "BSE:SILVER"
+      },
+      {
+        "description": "",
+        "proName": "NSE:TATAGOLD"
+      }
+    ],
+    "showSymbolLogo"; true,
+    "isTransparent"; false,
+    "displayMode"; "adaptive",
+    "colorTheme"; "dark",
+    "locale"; "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+        <!-- Forex Ticker -->
+        <div class="ticker-section animate__animated animate__fadeInUp">
+            <div class="section-title">
+                <h4>🌍 Forex Rates</h4>
+            </div>
+            <div class="tradingview-widget-container">
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                    "symbols" [
+                        {"proName": "FX_IDC:INRUSD", "title": "INR/USD"},
+                        {"proName": "FX_IDC:INRJPY", "title": "INR/JPY"},
+                        {"proName": "FX_IDC:INRGBP", "title": "INR/GBP"},
+                        {"proName": "FX_IDC:INRCAD", "title": "INR/CAD"},
+                        {"proName": "FX_IDC:INREUR", "title": "INR/EUR"}
+                    ],
+                    "showSymbolLogo"; true,
+                    "isTransparent"; false,
+                    "displayMode"; "adaptive",
+                    "colorTheme"; "dark",
+                    "locale"; "en"
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-4">
+        <p>&copy; 2025 Apex Trading. All rights reserved by Archit.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
